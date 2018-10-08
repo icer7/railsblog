@@ -1,0 +1,17 @@
+<%= render partial: "shared/header" %>
+<div class="big-field">
+  <%= form_for @article, :url => { :action => :create } do |f| %>
+    <div class="input-field">
+      <p>タイトル</p>
+      <%= f.text_field :title %>
+    </div>
+    <div class="input-field">
+      <p>記事内容</p>
+      <%= f.text_area :detail, class: "article-field" %>
+    </div>
+    <%= f.submit "Create Article" %>
+  <% end %>
+</div>
+
+
+<%= render partial: "shared/footer" %>

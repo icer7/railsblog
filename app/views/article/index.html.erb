@@ -1,0 +1,38 @@
+<%= render partial: "shared/header" %>
+
+<div id="main">
+    <%= image_tag "main-img.jpg"%>
+</div>
+
+
+<div id="article_wrap">
+
+    <div id="article_list">
+      <% @articles.each do |article| %>
+
+        <div>
+            <h2><a href="/article/<%= article.id %>"><%= article.title %></a></h2>
+            <p><%= article.created_at.strftime("%Y/%m/%d")%></p>
+            <% if user_signed_in? && current_user.id == article.user_id %>
+              <%= link_to "編集", "/article/#{ article.id }/edit" %>
+              <%= link_to "削除", "/article/#{ article.id }", method: :delete %>
+            <% end %>
+        </div>
+
+      <% end %>
+
+    </div>
+
+    <div id="sidebar">
+
+        <h2>★PV数ランキング</h2>
+        <ul>
+          <%= render partial: "shared/article", collection: @ranking_articles %>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<%= render partial: "shared/footer" %>
+
+

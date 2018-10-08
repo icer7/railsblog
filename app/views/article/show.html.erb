@@ -1,0 +1,32 @@
+<%= render partial: "shared/header" %>
+
+<div id="title">
+    <div>
+        <p><%= @article.created_at.strftime("%Y/%m/%d")%></p>
+        <h1><%= @article.title %></h1>
+    </div>
+</div>
+
+<div id="article_wrap">
+
+    <div id="content">
+
+        <p>
+        <%= @article.detail %>
+        </p>
+
+    </div>
+
+
+    <div id="sidebar">
+
+        <h2>★PV数ランキング</h2>
+        <ul>
+          <%= render partial: "shared/article", collection: @ranking_articles %>
+        </ul>
+
+    </div>
+    <div class="clear"></div>
+</div>
+
+<%= render partial: "shared/footer" %>

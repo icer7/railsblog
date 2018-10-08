@@ -1,0 +1,1 @@
+<li><a href="/article/<%= article.id %>"><%= article.title %><span><% if article.redis_page_view.present? %>（<%= article.redis_page_view %>pv）<% else %> (0pv) <% end %> </span></a></li>
